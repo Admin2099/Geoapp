@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF--8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GeoQuiz - The Interactive Map Edition</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Leaflet.js (Map Library) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="background-gradient"></div>
+
+    <main class="container">
+        <header>
+            <h1>GeoQuiz 🌍</h1>
+            <p>Test your geography knowledge and explore the world!</p>
+        </header>
+
+        <section class="content-grid">
+            <article id="quiz-container" class="glass-panel">
+                <div class="score-container">
+                    <h3>Score: <span id="score">0</span></h3>
+                </div>
+                
+                <h2 id="question-text">Loading question...</h2>
+                
+                <form id="answer-form">
+                    <input type="text" id="answer-input" name="capital" placeholder="Enter the capital city" required autocomplete="off">
+                    <button type="submit" id="submit-btn">Submit</button>
+                </form>
+                
+                <button id="next-btn" style="display: none;">Next Question</button>
+                
+                <div id="feedback-container">
+                    <p id="feedback-text" role="status"></p>
+                </div>
+            </article>
+
+            <!-- Right Column: Map -->
+            <div id="map" class="glass-panel"></div>
+        </section>
+    </main>
+
+    <!-- Game Logic Script -->
+    <script src="{{ url_for('static', filename='js/game.js') }}"></script>
+</body>
+</html>
